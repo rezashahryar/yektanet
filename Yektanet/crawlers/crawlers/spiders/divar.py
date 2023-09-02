@@ -18,7 +18,7 @@ class DivarSpider(scrapy.Spider):
     #     "Authorization" : "Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiMDk5MTAzOTEzNzkiLCJpc3MiOiJhdXRoIiwidmVyaWZpZWRfdGltZSI6MTY5MzAzMDEyMiwiaWF0IjoxNjkzMDMwMTIyLCJleHAiOjE2OTQzMjYxMjIsInVzZXItdHlwZSI6InBlcnNvbmFsIiwidXNlci10eXBlLWZhIjoiXHUwNjdlXHUwNjQ2XHUwNjQ0IFx1MDYzNFx1MDYyZVx1MDYzNVx1MDZjYyIsInNpZCI6IjM2NDdiZDZlLWI1ZTEtNDhhMC1hZGQ3LTYyZjE2ZmMwMmYzNyJ9.e3VRhXmfqOo_y7_FQlKYfwwIlDwhvrcNmoeLVhOatTQ"
     # }
     custom_settings = dict(
-      DOWNLOAD_DELAY = (30 + 30) / 2 * 60,
+      DOWNLOAD_DELAY = (15 + 15) / 2 * 60,
       RANDOMIZE_DOWNLOAD_DELAY = True
     )
     global got_nums
@@ -29,7 +29,7 @@ class DivarSpider(scrapy.Spider):
         self.saturation = random.randint(35,60)
         
     def start_requests(self):
-        for page in range(1,3):
+        for page in range(1, 3):
             if self.got_nums <= self.saturation:
                 url = f'https://api.divar.ir/v8/web-search/iran/vehicles?page={page}'
                 
